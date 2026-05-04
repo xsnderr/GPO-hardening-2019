@@ -1,0 +1,314 @@
+ID,Section,Path,Name,Value,Type
+1.1.1,Account,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System,PasswordHistorySize,24,DWORD
+1.1.2,Account,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System,MaximumPasswordAge,60,DWORD
+1.1.4,Account,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System,MinimumPasswordLength,14,DWORD
+2.3.1.1,AppGame,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer,NoGameExplorer,1,DWORD
+2.3.1.2,SecurityOptions,HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon,DontDisplayLastUserName,1,DWORD
+2.3.1.3,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Control\Lsa,LimitBlankPasswordUse,1,DWORD
+2.3.2.1,SecurityOptions,HKLM:\System\CurrentControlSet\Control\Lsa,SCENoApplyLegacyAuditPolicy,1,DWORD
+2.3.4.1,SecurityOptions,HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon,AllocateDASD,0,String
+2.3.4.2,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Control\Print\Providers\LanMan Print Services\Servers,AddPrinterDrivers,1,DWORD
+2.3.6.1,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters,RequireSignOrSeal,1,DWORD
+2.3.6.2,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters,SealSecureChannel,1,DWORD
+2.3.6.3,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters,SignSecureChannel,1,DWORD
+2.3.6.4,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters,DisablePasswordChange,0,DWORD
+2.3.6.5,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters,MaximumPasswordAge,30,DWORD
+2.3.6.6,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters,RequireStrongKey,1,DWORD
+2.3.7.1,SecurityOptions,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System,DisableCAD,0,DWORD
+2.3.7.2,SecurityOptions,HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon,DontDisplayLastUserName,1,DWORD
+2.3.7.3,SecurityOptions,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System,InactivityTimeoutSecs,900,DWORD
+2.3.7.7,SecurityOptions,HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon,PasswordExpiryWarning,14,DWORD
+2.3.7.9,SecurityOptions,HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon,ScRemoveOption,1,String
+2.3.8.1,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters,RequireSecuritySignature,1,DWORD
+2.3.8.2,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters,EnableSecuritySignature,1,DWORD
+2.3.8.3,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters,EnablePlainTextPassword,0,DWORD
+2.3.9.1,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Services\LanManServer\Parameters,AutoDisconnect,15,DWORD
+2.3.9.2,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Services\LanManServer\Parameters,RequireSecuritySignature,1,DWORD
+2.3.9.3,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Services\LanManServer\Parameters,EnableSecuritySignature,1,DWORD
+2.3.9.4,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Services\LanManServer\Parameters,EnableForcedLogOff,1,DWORD
+2.3.9.5,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Services\LanManServer\Parameters,SmbServerNameHardeningLevel,1,DWORD
+2.3.10.1,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Control\Lsa,TurnOffAnonymousBlock,0,DWORD
+2.3.10.2,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Control\Lsa,RestrictAnonymousSAM,1,DWORD
+2.3.10.3,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Control\Lsa,RestrictAnonymous,1,DWORD
+2.3.10.5,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Control\Lsa,EveryoneIncludesAnonymous,0,DWORD
+2.3.10.10,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Services\LanManServer\Parameters,RestrictNullSessAccess,1,DWORD
+2.3.10.13,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Control\Lsa,ForceGuest,0,DWORD
+2.3.11.1,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0,NTLMMinClientSec,537395200,DWORD
+2.3.11.2,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0,allownullsessionfallback,0,DWORD
+2.3.11.3,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\pku2u,AllowOnlineID,0,DWORD
+2.3.11.4,SecurityOptions,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Parameters,SupportedEncryptionTypes,2147483640,DWORD
+2.3.11.5,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Control\Lsa,NoLMHash,1,DWORD
+2.3.11.6,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Services\LanManServer\Parameters,EnableForcedLogOff,1,DWORD
+2.3.11.7,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Control\Lsa,LmCompatibilityLevel,5,DWORD
+2.3.11.8,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Services\LDAP,LDAPClientIntegrity,1,DWORD
+2.3.11.9,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0,NTLMMinClientSec,537395200,DWORD
+2.3.11.10,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0,NTLMMinServerSec,537395200,DWORD
+2.3.13.1,SecurityOptions,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System,ShutdownWithoutLogon,0,DWORD
+2.3.15.1,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Kernel,ObCaseInsensitive,1,DWORD
+2.3.15.2,SecurityOptions,HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager,ProtectionMode,1,DWORD
+2.3.17.1,SecurityOptions,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System,FilterAdministratorToken,1,DWORD
+2.3.17.2,SecurityOptions,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System,ConsentPromptBehaviorAdmin,2,DWORD
+2.3.17.3,SecurityOptions,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System,ConsentPromptBehaviorUser,0,DWORD
+2.3.17.4,SecurityOptions,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System,EnableInstallerDetection,1,DWORD
+2.3.17.5,SecurityOptions,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System,EnableSecureUIAPaths,1,DWORD
+2.3.17.6,SecurityOptions,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System,EnableLUA,1,DWORD
+2.3.17.7,SecurityOptions,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System,PromptOnSecureDesktop,1,DWORD
+2.3.17.8,SecurityOptions,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System,EnableVirtualization,1,DWORD
+9.1.1,Firewall,HKLM:\Software\Policies\Microsoft\WindowsFirewall\DomainProfile,EnableFirewall,1,DWORD
+9.1.2,Firewall,HKLM:\Software\Policies\Microsoft\WindowsFirewall\DomainProfile,DefaultInboundAction,1,DWORD
+9.1.3,Firewall,HKLM:\Software\Policies\Microsoft\WindowsFirewall\DomainProfile,DefaultOutboundAction,0,DWORD
+9.1.4,Firewall,HKLM:\Software\Policies\Microsoft\WindowsFirewall\DomainProfile,DisableNotifications,1,DWORD
+9.1.5,Firewall,HKLM:\Software\Policies\Microsoft\WindowsFirewall\DomainProfile\Logging,LogFilePath,%SystemRoot%\System32\logfiles\firewall\domainfw.log,String
+9.1.6,Firewall,HKLM:\Software\Policies\Microsoft\WindowsFirewall\DomainProfile\Logging,LogFileSize,16384,DWORD
+9.1.7,Firewall,HKLM:\Software\Policies\Microsoft\WindowsFirewall\DomainProfile\Logging,LogDroppedPackets,1,DWORD
+9.1.8,Firewall,HKLM:\Software\Policies\Microsoft\WindowsFirewall\DomainProfile\Logging,LogSuccessfulConnections,1,DWORD
+9.2.1,Firewall,HKLM:\Software\Policies\Microsoft\WindowsFirewall\PrivateProfile,EnableFirewall,1,DWORD
+9.2.2,Firewall,HKLM:\Software\Policies\Microsoft\WindowsFirewall\PrivateProfile,DefaultInboundAction,1,DWORD
+9.2.3,Firewall,HKLM:\Software\Policies\Microsoft\WindowsFirewall\PrivateProfile,DefaultOutboundAction,0,DWORD
+9.2.4,Firewall,HKLM:\Software\Policies\Microsoft\WindowsFirewall\PrivateProfile,DisableNotifications,1,DWORD
+9.2.5,Firewall,HKLM:\Software\Policies\Microsoft\WindowsFirewall\PrivateProfile\Logging,LogFilePath,%SystemRoot%\System32\logfiles\firewall\privatefw.log,String
+9.2.6,Firewall,HKLM:\Software\Policies\Microsoft\WindowsFirewall\PrivateProfile\Logging,LogFileSize,16384,DWORD
+9.2.7,Firewall,HKLM:\Software\Policies\Microsoft\WindowsFirewall\PrivateProfile\Logging,LogDroppedPackets,1,DWORD
+9.2.8,Firewall,HKLM:\Software\Policies\Microsoft\WindowsFirewall\PrivateProfile\Logging,LogSuccessfulConnections,1,DWORD
+9.3.1,Firewall,HKLM:\Software\Policies\Microsoft\WindowsFirewall\PublicProfile,EnableFirewall,1,DWORD
+9.3.2,Firewall,HKLM:\Software\Policies\Microsoft\WindowsFirewall\PublicProfile,DefaultInboundAction,1,DWORD
+9.3.3,Firewall,HKLM:\Software\Policies\Microsoft\WindowsFirewall\PublicProfile,DefaultOutboundAction,0,DWORD
+9.3.4,Firewall,HKLM:\Software\Policies\Microsoft\WindowsFirewall\PublicProfile,DisableNotifications,1,DWORD
+9.3.5,Firewall,HKLM:\Software\Policies\Microsoft\WindowsFirewall\PublicProfile,AllowLocalPolicyMerge,0,DWORD
+9.3.6,Firewall,HKLM:\Software\Policies\Microsoft\WindowsFirewall\PublicProfile,AllowLocalIPsecPolicyMerge,0,DWORD
+9.3.7,Firewall,HKLM:\Software\Policies\Microsoft\WindowsFirewall\PublicProfile\Logging,LogFilePath,%SystemRoot%\System32\logfiles\firewall\publicfw.log,String
+9.3.8,Firewall,HKLM:\Software\Policies\Microsoft\WindowsFirewall\PublicProfile\Logging,LogFileSize,16384,DWORD
+9.3.9,Firewall,HKLM:\Software\Policies\Microsoft\WindowsFirewall\PublicProfile\Logging,LogDroppedPackets,1,DWORD
+9.3.10,Firewall,HKLM:\Software\Policies\Microsoft\WindowsFirewall\PublicProfile\Logging,LogSuccessfulConnections,1,DWORD
+18.1.1.1,AutoRun,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer,NoDriveTypeAutoRun,255,DWORD
+18.1.1.2,LockScreen,HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization,NoLockScreenSlideshow,1,DWORD
+18.1.2.2,Speech,HKLM:\SOFTWARE\Policies\Microsoft\InputPersonalization,AllowInputPersonalization,0,DWORD
+18.1.3,OnlineTips,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer,AllowOnlineTips,0,DWORD
+18.2.1,LSO,HKLM:\SOFTWARE\Policies\Microsoft\Windows\System,LogonSessionOrders,1,DWORD
+18.2.2,LAPS,HKLM:\SOFTWARE\Policies\Microsoft\Windows\LAPS,PwdExpirationProtectionEnabled,1,DWORD
+18.2.3,LAPS,HKLM:\SOFTWARE\Policies\Microsoft\Windows\LAPS,ADPasswordEncryptionEnabled,1,DWORD
+18.2.4,LAPS,HKLM:\SOFTWARE\Policies\Microsoft\Windows\LAPS,PasswordComplexity,4,DWORD
+18.2.5,LAPS,HKLM:\SOFTWARE\Policies\Microsoft\Windows\LAPS,PasswordLength,15,DWORD
+18.2.6,LAPS,HKLM:\SOFTWARE\Policies\Microsoft\Windows\LAPS,PasswordAgeDays,30,DWORD
+18.3.1,MSSecGuide,HKLM:\SYSTEM\CurrentControlSet\Control\Lsa,RestrictRemoteSAM,O:BAG:BAD:(A;;RC;;;BA),String
+18.3.1.1,EventLog,HKLM:\Software\Policies\Microsoft\Windows\EventLog\Application,MaxSize,32768,DWORD
+18.3.2,MSSecGuide,HKLM:\SYSTEM\CurrentControlSet\Services\MrxSmb10,Start,4,DWORD
+18.3.3,MSSecGuide,HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters,SMB1,0,DWORD
+18.3.4,MSSecGuide,HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager,EnableSEHOP,1,DWORD
+18.3.5,MSSecGuide,HKLM:\SYSTEM\CurrentControlSet\Services\NetBT\Parameters,NodeType,2,DWORD
+18.3.6,MSSecGuide,HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest,UseLogonCredential,0,DWORD
+18.3.6.1,EventLog,HKLM:\Software\Policies\Microsoft\Windows\EventLog\Security,MaxSize,196608,DWORD
+18.3.9.1,EventLog,HKLM:\Software\Policies\Microsoft\Windows\EventLog\System,MaxSize,32768,DWORD
+18.3.12.1,EventLog,HKLM:\Software\Policies\Microsoft\Windows\EventLog\Setup,MaxSize,32768,DWORD
+18.4.1,DataCollection,HKLM:\Software\Policies\Microsoft\Windows\DataCollection,AllowTelemetry,0,DWORD
+18.4.2,MSS,HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters,DisableIPSourceRouting,2,DWORD
+18.4.3,MSS,HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters,DisableIPSourceRouting,2,DWORD
+18.4.4,MSS,HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters,EnableICMPRedirect,0,DWORD
+18.4.5,MSS,HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters,KeepAliveTime,300000,DWORD
+18.4.6,MSS,HKLM:\SYSTEM\CurrentControlSet\Services\NetBT\Parameters,NoNameReleaseOnDemand,1,DWORD
+18.4.7,MSS,HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters,PerformRouterDiscovery,0,DWORD
+18.4.8,MSS,HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager,SafeDllSearchMode,1,DWORD
+18.4.9,MSS,HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon,ScreenSaverGracePeriod,5,String
+18.4.10,MSS,HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters,TcpMaxDataRetransmissions,3,DWORD
+18.4.11,MSS,HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters,TcpMaxDataRetransmissions,3,DWORD
+18.4.12,MSS,HKLM:\SYSTEM\CurrentControlSet\Services\Eventlog\Security,WarningLevel,90,DWORD
+18.5.4.1,Cmd,HKLM:\Software\Policies\Microsoft\Windows\System,DisableCMD,0,DWORD
+18.5.5.1,Network,HKLM:\SOFTWARE\Policies\Microsoft\Windows\System,EnableFontProviders,0,DWORD
+18.5.8.1,EarlyLaunch,HKLM:\SYSTEM\CurrentControlSet\Control\EarlyLaunch,DriverLoadPolicy,1,DWORD
+18.5.9.1,Network,HKLM:\SOFTWARE\Policies\Microsoft\Windows\LLTD,AllowLLTDIOOnDomain,0,DWORD
+18.5.9.2,Network,HKLM:\SOFTWARE\Policies\Microsoft\Windows\LLTD,AllowRspndrOnDomain,0,DWORD
+18.5.10.2,Network,HKLM:\SOFTWARE\Policies\Microsoft\Peernet,Disabled,1,DWORD
+18.5.11.2,Network,HKLM:\SOFTWARE\Policies\Microsoft\Windows\Network Connections,NC_AllowNetBridge_NLA,0,DWORD
+18.5.11.3,Network,HKLM:\SOFTWARE\Policies\Microsoft\Windows\Network Connections,NC_ShowSharedAccessUI,0,DWORD
+18.5.11.4,Network,HKLM:\SOFTWARE\Policies\Microsoft\Windows\Network Connections,NC_StdDomainUserSetLocation,1,DWORD
+18.5.14.1,Network,HKLM:\SOFTWARE\Policies\Microsoft\Windows\NetworkProvider\HardenedPaths,\\*\NETLOGON,"RequireMutualAuthentication=1, RequireIntegrity=1",String
+18.5.19.2.1,Network,HKLM:\SYSTEM\CurrentControlSet\Services\TCPIP6\Parameters,DisabledComponents,255,DWORD
+18.5.20.1,Network,HKLM:\SOFTWARE\Policies\Microsoft\Windows\WCN\Registrars,DisableWPDRegistrar,0,DWORD
+18.5.20.2,Network,HKLM:\SOFTWARE\Policies\Microsoft\Windows\WCN\UI,DisableWcnUi,1,DWORD
+18.5.21.1,Network,HKLM:\SOFTWARE\Policies\Microsoft\Windows\WcmSvc\GroupPolicy,fMinimizeConnections,3,DWORD
+18.5.21.2,Network,HKLM:\SOFTWARE\Policies\Microsoft\Windows\WcmSvc\GroupPolicy,fBlockNonDomain,1,DWORD
+18.7.1.1,Notifications,HKLM:\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications,NoCloudApplicationNotification,1,DWORD
+18.8.3.1,MSS,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System,EnableLUA,1,DWORD
+18.8.4.1,CredDelegation,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\CredSSP\Parameters,AllowEncryptionOracle,1,DWORD
+18.8.4.2,CredDelegation,HKLM:\SOFTWARE\Policies\Microsoft\Windows\CredentialsDelegation,AllowProtectedCreds,1,DWORD
+18.8.14.1,EarlyLaunch,HKLM:\SYSTEM\CurrentControlSet\Policies\EarlyLaunch,DriverLoadPolicy,3,DWORD
+18.8.21.2,MSS,HKLM:\Software\Policies\Microsoft\Windows\IPC\Client,AllowImplicitVirtualization,0,DWORD
+18.8.21.3,GroupPolicy,HKLM:\SOFTWARE\Policies\Microsoft\Windows\Group Policy\{35378EAC-683F-11D2-A89A-00C04FBBCFA2},NoGPOListChanges,0,DWORD
+18.8.21.4,GroupPolicy,HKLM:\SOFTWARE\Policies\Microsoft\Windows\System,EnableCdp,0,DWORD
+18.8.21.5,GroupPolicy,HKLM:\SOFTWARE\Policies\Microsoft\Windows\System,DisableBkGndGroupPolicy,0,DWORD
+18.8.22.1.1,InternetComm,HKLM:\SOFTWARE\Policies\Microsoft\Windows\DriverSearching,DontSearchWindowsUpdate,1,DWORD
+18.8.22.1.2,InternetComm,HKLM:\SOFTWARE\Policies\Microsoft\Windows\HandwritingErrorReports,PreventHandwritingDataSharing,1,DWORD
+18.8.22.1.3,InternetComm,HKLM:\SOFTWARE\Policies\Microsoft\Windows\HandwritingErrorReports,PreventHandwritingErrorReports,1,DWORD
+18.8.22.1.4,InternetComm,HKLM:\SOFTWARE\Policies\Microsoft\Windows\Internet Connection Wizard,ExitOnMSICW,1,DWORD
+18.8.22.1.5,InternetComm,HKLM:\SOFTWARE\Policies\Microsoft\Windows\Internet Connection Wizard,ExitOnMSICW,1,DWORD
+18.8.22.1.6,InternetComm,HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Printers,DisableHTTPPrinting,1,DWORD
+18.8.22.1.7,InternetComm,HKLM:\SOFTWARE\Policies\Microsoft\Windows\Registration Wizard Control,NoRegistration,1,DWORD
+18.8.22.1.8,InternetComm,HKLM:\SOFTWARE\Policies\Microsoft\SearchCompanion,PreventAutoUpdate,1,DWORD
+18.8.22.1.9,InternetComm,HKLM:\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Explorer\Policies,NoOnlinePrintsWizard,1,DWORD
+18.8.22.1.10,InternetComm,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer,NoPublishingWizard,1,DWORD
+18.8.22.1.11,InternetComm,HKLM:\SOFTWARE\Policies\Microsoft\Messenger\Client,CEIP,2,DWORD
+18.8.22.1.12,InternetComm,HKLM:\SOFTWARE\Policies\Microsoft\SQMClient\Windows,CEIPEnable,0,DWORD
+18.8.22.1.13,InternetComm,HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting,Disabled,1,DWORD
+18.8.25.1,KerbDeviceAuth,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Parameters,DevicePKInitEnabled,1,DWORD
+18.8.26.1,DeviceInstall,HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Restrictions,DenyRemovableDevices,1,DWORD
+18.8.27.1,InputMethod,HKLM:\SOFTWARE\Policies\Microsoft\Control Panel\International,BlockUserInputMethodsForSignIn,1,DWORD
+18.8.28.1,Logon,HKLM:\SOFTWARE\Policies\Microsoft\Windows\System,BlockUserFromShowingAccountDetailsOnSignin,1,DWORD
+18.8.28.2,Logon,HKLM:\SOFTWARE\Policies\Microsoft\Windows\System,DontDisplayNetworkSelectionUI,1,DWORD
+18.8.28.3,Logon,HKLM:\SOFTWARE\Policies\Microsoft\Windows\System,DontEnumerateConnectedUsers,1,DWORD
+18.8.28.4,Logon,HKLM:\SOFTWARE\Policies\Microsoft\Windows\System,EnumerateLocalUsers,0,DWORD
+18.8.28.5,Logon,HKLM:\SOFTWARE\Policies\Microsoft\Windows\System,DisableLockScreenAppNotifications,1,DWORD
+18.8.28.6,Logon,HKLM:\SOFTWARE\Policies\Microsoft\Windows\System,BlockDomainPicturePassword,1,DWORD
+18.8.28.7,Logon,HKLM:\SOFTWARE\Policies\Microsoft\Windows\System,AllowDomainPINLogon,0,DWORD
+18.8.31.1,ActivityFeed,HKLM:\SOFTWARE\Policies\Microsoft\Windows\System,AllowClipboardHistory,0,DWORD
+18.8.31.2,ActivityFeed,HKLM:\SOFTWARE\Policies\Microsoft\Windows\System,EnableActivityFeed,0,DWORD
+18.8.33,CEIP,HKLM:\SOFTWARE\Policies\Microsoft\SQMClient\Windows,CEIPEnable,0,DWORD
+18.8.34.6.1,Power,HKLM:\SOFTWARE\Policies\Microsoft\Power\PowerSettings\f15576e8-98b7-4186-b944-eafa664402d9,DCSettingIndex,0,DWORD
+18.8.34.6.2,Power,HKLM:\SOFTWARE\Policies\Microsoft\Power\PowerSettings\f15576e8-98b7-4186-b944-eafa664402d9,ACSettingIndex,0,DWORD
+18.8.34.6.3,Power,HKLM:\SOFTWARE\Policies\Microsoft\Power\PowerSettings\0e796bdb-100d-47d6-a2d5-f7d2daa51f51,DCSettingIndex,1,DWORD
+18.8.34.6.4,Power,HKLM:\SOFTWARE\Policies\Microsoft\Power\PowerSettings\0e796bdb-100d-47d6-a2d5-f7d2daa51f51,ACSettingIndex,1,DWORD
+18.8.36.1,RemoteAssist,HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services,fAllowUnsolicited,0,DWORD
+18.8.36.2,RemoteAssist,HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services,fAllowToGetHelp,0,DWORD
+18.8.37.1,RPC,HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Rpc,EnableAuthEpResolution,1,DWORD
+18.8.37.2,RPC,HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Rpc,RestrictRemoteClients,1,DWORD
+18.8.47.5.1,MSDT,HKLM:\SOFTWARE\Policies\Microsoft\Windows\ScriptedDiagnosticsProvider\Policy,DisableQueryRemoteServer,0,DWORD
+18.8.47.11.1,PerfTrack,HKLM:\SOFTWARE\Policies\Microsoft\Windows\WDI\{9c5a40da-b965-4fc3-8781-88dd50a6299d},ScenarioExecutionEnabled,0,DWORD
+18.8.49.1,AdvertisingID,HKLM:\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo,DisabledByGroupPolicy,1,DWORD
+18.8.52.1.1,NTP,HKLM:\SOFTWARE\Policies\Microsoft\W32Time\TimeProviders\NtpClient,Enabled,1,DWORD
+18.8.52.1.2,NTP,HKLM:\SOFTWARE\Policies\Microsoft\W32Time\TimeProviders\NtpServer,Enabled,0,DWORD
+18.9.4.1,AppPrivacy,HKLM:\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy,LetAppsShareWithOtherDevices,2,DWORD
+18.9.6.1,AutoPlay,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer,NoAutoplayForNonVolume,1,DWORD
+18.9.8.1,AutoPlay,HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer,NoAutoplayForNonVolume,1,DWORD
+18.9.8.2,AutoPlay,HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer,NoAutorun,1,DWORD
+18.9.8.3,AutoPlay,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer,NoDriveTypeAutoRun,255,DWORD
+18.9.10.1.1,Biometrics,HKLM:\SOFTWARE\Policies\Microsoft\Biometrics\FacialFeatures,EnhancedAntiSpoofing,1,DWORD
+18.9.12.1,Camera,HKLM:\SOFTWARE\Policies\Microsoft\Camera,AllowCamera,0,DWORD
+18.9.13.1,CloudContent,HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent,DisableWindowsConsumerFeatures,1,DWORD
+18.9.13.2,CloudContent,HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent,DisableWindowsConsumerFeatures,1,DWORD
+18.9.14.1,ConfigMgr,HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent,DisableCloudOptimizedContent,1,DWORD
+18.9.15.1,Logon,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System,DisableCAD,0,DWORD
+18.9.15.2,CredUI,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\CredUI,EnumerateAdministrators,0,DWORD
+18.9.16.1,DataCollection,HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection,AllowTelemetry,0,DWORD
+18.9.16.2,DataCollection,HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection,DisableOneSettingsDownloads,1,DWORD
+18.9.16.3,DataCollection,HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection,DoNotShowFeedbackNotifications,1,DWORD
+18.9.16.4,DataCollection,HKLM:\SOFTWARE\Policies\Microsoft\Windows\PreviewBuilds,AllowBuildPreview,0,DWORD
+18.9.19,AutoRun,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer,NoAutorun,1,DWORD
+18.9.26.1,FileExplorer,HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer,NoHeapTerminationOnCorruption,0,DWORD
+18.9.26.1.1,EventLog,HKLM:\SOFTWARE\Policies\Microsoft\Windows\EventLog\Application,Retention,0,String
+18.9.26.1.2,EventLog,HKLM:\SOFTWARE\Policies\Microsoft\Windows\EventLog\Application,MaxSize,32768,DWORD
+18.9.26.2.1,EventLog,HKLM:\SOFTWARE\Policies\Microsoft\Windows\EventLog\Security,Retention,0,String
+18.9.26.2.2,EventLog,HKLM:\SOFTWARE\Policies\Microsoft\Windows\EventLog\Security,MaxSize,196608,DWORD
+18.9.26.3.1,EventLog,HKLM:\SOFTWARE\Policies\Microsoft\Windows\EventLog\Setup,Retention,0,String
+18.9.26.3.2,EventLog,HKLM:\SOFTWARE\Policies\Microsoft\Windows\EventLog\Setup,MaxSize,32768,DWORD
+18.9.26.4.1,EventLog,HKLM:\SOFTWARE\Policies\Microsoft\Windows\EventLog\System,Retention,0,String
+18.9.26.4.2,EventLog,HKLM:\SOFTWARE\Policies\Microsoft\Windows\EventLog\System,MaxSize,32768,DWORD
+18.9.30.1,GameBar,HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameBadge,AllowGameBadge,0,DWORD
+18.9.30.2,Cloud,HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent,DisableWindowsSpotlightFeatures,1,DWORD
+18.9.30.3,FileExplorer,HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer,NoHeapTerminationOnCorruption,0,DWORD
+18.9.30.4,FileExplorer,HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer,PreXPSP2ShellProtocolBehavior,0,DWORD
+18.9.39.1,Location,HKLM:\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors,DisableLocation,1,DWORD
+18.9.43.1,Messaging,HKLM:\SOFTWARE\Policies\Microsoft\Windows\Messaging,AllowMessageSync,0,DWORD
+18.9.44.1,MicrosoftAccount,HKLM:\SOFTWARE\Policies\Microsoft\MicrosoftAccount,DisableUserAuth,1,DWORD
+18.9.45.1,Defender,HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender,DisableAntiSpyware,0,DWORD
+18.9.45.3.1,Defender,HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Reporting,DisableGenericReports,1,DWORD
+18.9.45.3.2,Defender,HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet,SpyNetReporting,0,DWORD
+18.9.45.4.1.1,Defender,HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR,ExploitGuard_ASR_Rules,1,DWORD
+18.9.45.4.1.2,Defender,HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\Rules,75668c1f-73b5-4cf0-bb93-3ecf5cb7cc84,1,String
+18.9.45.4.3.1,Defender,HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\Network Protection,EnableNetworkProtection,1,DWORD
+18.9.45.5,Defender,HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection,EnableFileHashComputation,1,DWORD
+18.9.45.5.1,Defender,HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\MpEngine,EnableFileHashComputation,1,DWORD
+18.9.45.8,Defender,HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Scan,DisableArchiveScanning,0,DWORD
+18.9.45.8.1,Defender,HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Scan,DisableArchiveScanning,0,DWORD
+18.9.45.8.2,Defender,HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection,DisableRealtimeMonitoring,0,DWORD
+18.9.45.8.3,Defender,HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection,DisableBehaviorMonitoring,0,DWORD
+18.9.45.10.1,Defender,HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Reporting,DisableWatsonEvents,1,DWORD
+18.9.45.11,Defender,HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection,DisableIOAVProtection,0,DWORD
+18.9.45.11.1,Defender,HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Scan,DisableRemovableDriveScanning,0,DWORD
+18.9.45.11.2,Defender,HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Scan,DisableEmailScanning,0,DWORD
+18.9.45.14,Defender,HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet,SpyNetReporting,0,DWORD
+18.9.45.15,Defender,HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender,DisableAntiVirus,0,DWORD
+18.9.45.16,Defender,HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection,DisableOnAccessProtection,0,DWORD
+18.9.45.17,Defender,HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender,PUAProtection,1,DWORD
+18.9.45.18,Defender,HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Signature Updates,FallbackOrder,InternalDefinitionUpdateServer,String
+18.9.47.1,BitLocker,HKLM:\Software\Policies\Microsoft\FVE,EncryptionMethodWithXtsOs,7,DWORD
+18.9.52.1,MSI,HKLM:\Software\Policies\Microsoft\Windows\Installer,AlwaysInstallElevated,0,DWORD
+18.9.52.2,Installer,HKLM:\Software\Policies\Microsoft\Windows\Installer,SafeForSemiTrustedApps,0,DWORD
+18.9.52.3.3.1,Netlogon,HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters,RequireSignOrSeal,1,DWORD
+18.9.55.1,OneDrive,HKLM:\SOFTWARE\Policies\Microsoft\Windows\OneDrive,DisableFileSyncNGSC,1,DWORD
+18.9.58.1,Netlogon,HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters,SealSecureChannel,1,DWORD
+18.9.58.2,Netlogon,HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters,SignSecureChannel,1,DWORD
+18.9.58.3.1,Netlogon,HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters,DisablePasswordReplication,1,DWORD
+18.9.60.2,NextGenID,HKLM:\SOFTWARE\Policies\Microsoft\PassportForWork,Enabled,0,DWORD
+18.9.62.2.2,RDS,HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services,DisablePasswordSaving,1,DWORD
+18.9.62.3.2.1,RDS,HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services,fSingleSessionPerUser,1,DWORD
+18.9.62.3.3.1,RDS,HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services,fDisableCcm,1,DWORD
+18.9.62.3.3.2,RDS,HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services,fDisableCdm,1,DWORD
+18.9.62.3.3.3,RDS,HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services,fDisableLPT,1,DWORD
+18.9.62.3.3.4,RDS,HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services,fDisablePNPRedir,1,DWORD
+18.9.62.3.9,RDS,HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services,MinEncryptionLevel,3,DWORD
+18.9.62.3.9.1,RDS,HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services,fPromptForPassword,1,DWORD
+18.9.62.3.9.2,RDS,HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services,fEncryptRPCTraffic,1,DWORD
+18.9.62.3.9.3,RDS,HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services,SecurityLayer,2,DWORD
+18.9.62.3.9.4,RDS,HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services,UserAuthentication,1,DWORD
+18.9.62.3.9.5,RDS,HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services,MinEncryptionLevel,3,DWORD
+18.9.62.3.10,RDS,HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services,MaxIdleTime,900000,DWORD
+18.9.62.3.10.1,RDS,HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services,MaxIdleTime,900000,DWORD
+18.9.62.3.10.2,RDS,HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services,MaxDisconnectionTime,60000,DWORD
+18.9.62.3.11,RDS,HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services,MaxDisconnectionTime,60000,DWORD
+18.9.62.3.11.1,RDS,HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services,DeleteTempDirsOnExit,1,DWORD
+18.9.62.3.11.2,RDS,HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services,PerSessionTempDir,1,DWORD
+18.9.62.3.15,RDS,HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services,fPromptForPassword,1,DWORD
+18.9.63.1,RSS,HKLM:\SOFTWARE\Policies\Microsoft\Internet Explorer\Feeds,DisableEnclosureDownload,1,DWORD
+18.9.64.2,Search,HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search,AllowCloudSearch,0,DWORD
+18.9.64.3,Search,HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search,AllowIndexingEncryptedStoresOrItems,0,DWORD
+18.9.67.1,Search,HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search,AllowIndexingEncryptedStoresOrItems,0,DWORD
+18.9.69.1,Network,HKLM:\Software\Policies\Microsoft\Windows NT\DNSClient,EnableMulticast,0,DWORD
+18.9.74.1,RPC,HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Rpc,RestrictRemoteClients,1,DWORD
+18.9.80.1.1,SmartScreen,HKLM:\SOFTWARE\Policies\Microsoft\Windows\System,EnableSmartScreen,1,DWORD
+18.9.82.1,WiFi,HKLM:\Software\Policies\Microsoft\Windows\WlanSvc\WlanConfig,CheckCompliance,1,DWORD
+18.9.84.1,WinUpdate,HKLM:\Software\Policies\Microsoft\Windows\WindowsUpdate\AU,NoAutoUpdate,0,DWORD
+18.9.84.2,WinUpdate,HKLM:\Software\Policies\Microsoft\Windows\WindowsUpdate\AU,AUOptions,4,DWORD
+18.9.84.3,WinUpdate,HKLM:\Software\Policies\Microsoft\Windows\WindowsUpdate\AU,ScheduledInstallDay,0,DWORD
+18.9.84.4,WinUpdate,HKLM:\Software\Policies\Microsoft\Windows\WindowsUpdate\AU,ScheduledInstallTime,3,DWORD
+18.9.85.1,WindowsInstaller,HKLM:\SOFTWARE\Policies\Microsoft\Windows\Installer,AlwaysInstallElevated,0,DWORD
+18.9.85.2,WindowsInstaller,HKLM:\SOFTWARE\Policies\Microsoft\Windows\Installer,EnableUserControl,0,DWORD
+18.9.85.3,WindowsInstaller,HKLM:\SOFTWARE\Policies\Microsoft\Windows\Installer,SafeForSemiTrustedApps,0,DWORD
+18.9.86.1,Logon,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System,AutoAdminLogon,0,DWORD
+18.9.90.1,WCM,HKLM:\Software\Policies\Microsoft\Windows\WcmSvc\GroupPolicy,fSoftDisconnectConnections,1,DWORD
+18.9.94.1,WinRM,HKLM:\Software\Policies\Microsoft\Windows\WinRM\Client,AllowDigest,0,DWORD
+18.9.95.1,WinRM,HKLM:\Software\Policies\Microsoft\Windows\WinRM\Client,AllowBasic,0,DWORD
+18.9.95.2,WinRM,HKLM:\Software\Policies\Microsoft\Windows\WinRM\Client,AllowUnencryptedTraffic,0,DWORD
+18.9.96.1,WinRM,HKLM:\Software\Policies\Microsoft\Windows\WinRM\Service,AllowBasic,0,DWORD
+18.9.97.1.1,WinRM,HKLM:\SOFTWARE\Policies\Microsoft\Windows\WinRM\Client,AllowBasic,0,DWORD
+18.9.97.1.2,WinRM,HKLM:\SOFTWARE\Policies\Microsoft\Windows\WinRM\Client,AllowUnencryptedTraffic,0,DWORD
+18.9.97.1.3,WinRM,HKLM:\SOFTWARE\Policies\Microsoft\Windows\WinRM\Client,AllowDigest,0,DWORD
+18.9.97.2.1,WinRM,HKLM:\SOFTWARE\Policies\Microsoft\Windows\WinRM\Service,AllowBasic,0,DWORD
+18.9.97.2.2,WinRM,HKLM:\SOFTWARE\Policies\Microsoft\Windows\WinRM\Service,AllowRemoteShellAccess,0,DWORD
+18.9.97.2.3,WinRM,HKLM:\SOFTWARE\Policies\Microsoft\Windows\WinRM\Service,AllowUnencryptedTraffic,0,DWORD
+18.9.97.2.4,WinRM,HKLM:\SOFTWARE\Policies\Microsoft\Windows\WinRM\Service,DisableRunAs,1,DWORD
+18.9.98.1,WinRS,HKLM:\SOFTWARE\Policies\Microsoft\Windows\WinRM\Service\WinRS,AllowRemoteShellAccess,0,DWORD
+18.9.99.2.1,WindowsSecurity,HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\App and Browser protection,DisallowExploitProtectionOverride,1,DWORD
+18.9.100.1,WCM,HKLM:\Software\Policies\Microsoft\Windows\WcmSvc\GroupPolicy,fMinimizeConnections,1,DWORD
+18.9.101.1,WCM,HKLM:\Software\Policies\Microsoft\Windows\WcmSvc\GroupPolicy,fBlockNonDomain,1,DWORD
+18.9.102.1.1,WindowsUpdate,HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate,ManagePreviewBuildsPolicyValue,1,DWORD
+18.9.102.1.2,WindowsUpdate,HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate,DeferFeatureUpdatesPeriodInDays,180,DWORD
+18.9.102.1.3,WindowsUpdate,HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate,DeferQualityUpdatesPeriodInDays,0,DWORD
+18.9.102.2,WindowsUpdate,HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU,NoAutoUpdate,0,DWORD
+18.9.102.3,WindowsUpdate,HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU,ScheduledInstallDay,0,DWORD
+18.9.102.4,WindowsUpdate,HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU,NoAutoRebootWithLoggedOnUsers,0,DWORD
+18.10.2.1,PowerShell,HKLM:\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging,EnableScriptBlockLogging,1,DWORD
+19.1.3.1,UserScreenSaver,HKCU:\Software\Policies\Microsoft\Windows\Control Panel\Desktop,ScreenSaveActive,1,String
+19.1.3.2,UserScreenSaver,HKCU:\Software\Policies\Microsoft\Windows\Control Panel\Desktop,SCRNSAVE.EXE,scrnsave.scr,String
+19.1.3.3,UserScreenSaver,HKCU:\Software\Policies\Microsoft\Windows\Control Panel\Desktop,ScreenSaverIsSecure,1,String
+19.1.3.4,UserScreenSaver,HKCU:\Software\Policies\Microsoft\Windows\Control Panel\Desktop,ScreenSaveTimeOut,900,String
+19.5.1.1,UserToast,HKCU:\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications,NoToastApplicationNotificationOnLockScreen,1,DWORD
+19.6.6.1.1,UserHelp,HKCU:\SOFTWARE\Policies\Microsoft\Assistance\Client\1.0,NoExplicitFeedback,1,DWORD
+19.7.4.1,UAC,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System,EnableLUA,1,DWORD
+19.7.4.2,UAC,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System,ConsentPromptBehaviorAdmin,2,DWORD
+19.7.4.4,UAC,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System,PromptOnSecureDesktop,1,DWORD
+19.7.8.1,UserSpotlight,HKCU:\SOFTWARE\Policies\Microsoft\Windows\CloudContent,ConfigureWindowsSpotlight,2,DWORD
+19.7.8.2,UserSpotlight,HKCU:\SOFTWARE\Policies\Microsoft\Windows\CloudContent,DisableThirdPartySuggestions,1,DWORD
+19.7.8.3,UserSpotlight,HKCU:\SOFTWARE\Policies\Microsoft\Windows\CloudContent,DisableTailoredExperiencesWithDiagnosticData,1,DWORD
+19.7.8.4,UserSpotlight,HKCU:\SOFTWARE\Policies\Microsoft\Windows\CloudContent,DisableWindowsSpotlightFeatures,1,DWORD
+19.7.28.1,UserSharing,HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer,NoInplaceSharing,1,DWORD
+19.7.43.1,UserInstaller,HKCU:\SOFTWARE\Policies\Microsoft\Windows\Installer,AlwaysInstallElevated,0,DWORD
+19.7.47.2.1,UserMedia,HKCU:\SOFTWARE\Policies\Microsoft\WindowsMediaPlayer,PreventCodecDownload,1,DWORD
