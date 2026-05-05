@@ -1,0 +1,10 @@
+ID,SeceditKey,Operator,Value,Description
+1.1.1,PasswordHistorySize,ge,24,Enforce password history (24 or more)
+1.1.2,MaximumPasswordAge,le,60,Maximum password age (60 or fewer days)
+1.1.3,MinimumPasswordAge,ge,1,Minimum password age (1 or more day)
+1.1.4,MinimumPasswordLength,ge,14,Minimum password length (14 or more chars)
+1.1.5,PasswordComplexity,eq,1,Password must meet complexity requirements
+1.1.6,ClearTextPassword,eq,0,Store passwords using reversible encryption: Disabled
+1.2.1,LockoutDuration,ge,15,Account lockout duration (15 or more minutes)
+1.2.2,LockoutBadCount,le,10,Account lockout threshold (10 or fewer attempts)
+1.2.3,ResetLockoutCount,ge,15,Reset account lockout counter after (15 or more minutes)

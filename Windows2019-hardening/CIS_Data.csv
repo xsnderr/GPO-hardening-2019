@@ -287,7 +287,6 @@ ID,Section,Path,Name,Value,Type
 18.9.97.2.4,WinRM,HKLM:\SOFTWARE\Policies\Microsoft\Windows\WinRM\Service,DisableRunAs,1,DWORD
 18.9.98.1,WinRS,HKLM:\SOFTWARE\Policies\Microsoft\Windows\WinRM\Service\WinRS,AllowRemoteShellAccess,0,DWORD
 18.9.99.2.1,WindowsSecurity,HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\App and Browser protection,DisallowExploitProtectionOverride,1,DWORD
-18.9.100.1,WCM,HKLM:\Software\Policies\Microsoft\Windows\WcmSvc\GroupPolicy,fMinimizeConnections,1,DWORD
 18.9.101.1,WCM,HKLM:\Software\Policies\Microsoft\Windows\WcmSvc\GroupPolicy,fBlockNonDomain,1,DWORD
 18.9.102.1.1,WindowsUpdate,HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate,ManagePreviewBuildsPolicyValue,1,DWORD
 18.9.102.1.2,WindowsUpdate,HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate,DeferFeatureUpdatesPeriodInDays,180,DWORD
