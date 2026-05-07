@@ -2,42 +2,55 @@
 .SYNOPSIS
     GPO Hardening Automation - Audit Functions
 .DESCRIPTION
-    Fully data-driven audit engine. All checks come from CSV files:
-      CIS_Data.csv       - Registry checks   (Sections 2.3, 9, 18, 19)
-      Audit_Policy.csv   - Audit policy      (Section 17)
-      Account_Policy.csv - Account/lockout   (Section 1)
-
-    To support a new benchmark version, only update the CSV files.
+    Detects server role (DC / MS) and audits only the controls applicable
+    to that role, using the same CSV files as hardening.
 .NOTES
-    Run as Administrator.
-    Audit only runs after successful hardening (checked in main.ps1).
+    Run as Administrator. Audit only runs after successful hardening.
 #>
+
+# =============================================================================
+# SERVER ROLE DETECTION (mirrors Hardening-Functions.ps1)
+# =============================================================================
+function Get-ServerRole {
+    $role = (Get-WmiObject Win32_ComputerSystem).DomainRole
+    if ($role -ge 4) { return "DC" } else { return "MS" }
+}
+
+function Get-ApplicablePolicies {
+    param($Policies, [string]$ServerRole)
+    return $Policies | Where-Object {
+        (-not $_.AppliesTo) -or ($_.AppliesTo -eq 'Both') -or ($_.AppliesTo -eq $ServerRole)
+    }
+}
 
 # =============================================================================
 # MAIN ENTRY POINT
 # =============================================================================
-
 function Start-CISAudit {
     param([string]$BenchmarkName = "CIS Windows Server 2019 v1.2.0")
 
-    Write-Host "================================================" -ForegroundColor Cyan
-    Write-Host "   AUDIT: $BenchmarkName" -ForegroundColor White
-    Write-Host "================================================" -ForegroundColor Cyan
+    $ServerRole = Get-ServerRole
     $Global:AuditResults = @()
 
-    Test-CIS-AccountPolicies
-    Test-CIS-AuditPolicies
-    Test-CIS-RegistryFromCSV
+    Write-Host "================================================" -ForegroundColor Cyan
+    Write-Host "   AUDIT: $BenchmarkName" -ForegroundColor White
+    Write-Host "   Detected Role: $ServerRole" -ForegroundColor $(if ($ServerRole -eq "DC") {"Magenta"} else {"Yellow"})
+    Write-Host "================================================" -ForegroundColor Cyan
 
-    $ReportPath = "$PSScriptRoot\Audit_Report_$(Get-Date -Format 'yyyyMMdd_HHmm').csv"
+    Test-CIS-AccountPolicies -ServerRole $ServerRole
+    Test-CIS-AuditPolicies   -ServerRole $ServerRole
+    Test-CIS-RegistryFromCSV -ServerRole $ServerRole
+
+    $ReportPath = "$PSScriptRoot\Audit_Report_${ServerRole}_$(Get-Date -Format 'yyyyMMdd_HHmm').csv"
     $Global:AuditResults | Export-Csv -Path $ReportPath -NoTypeInformation
 
     $pass  = ($Global:AuditResults | Where-Object Status -eq "PASS").Count
     $fail  = ($Global:AuditResults | Where-Object Status -eq "FAIL").Count
+    $skip  = ($Global:AuditResults | Where-Object Status -eq "SKIP").Count
     $total = $Global:AuditResults.Count
 
     Write-Host "`n================================================" -ForegroundColor Cyan
-    Write-Host "  RESULT: $pass/$total PASS  |  $fail FAIL" -ForegroundColor White
+    Write-Host "  RESULT ($ServerRole): $pass PASS | $fail FAIL | $skip SKIP | $total total" -ForegroundColor White
     Write-Host "  Report: $ReportPath" -ForegroundColor Yellow
     Write-Host "================================================" -ForegroundColor Cyan
 }
@@ -45,23 +58,21 @@ function Start-CISAudit {
 # =============================================================================
 # HELPERS
 # =============================================================================
-
 function Log-AuditResult {
     param(
         [string]$ID,
         [string]$Description,
-        [bool]  $IsCompliant,
+        [string]$Status,      # PASS, FAIL, or SKIP
         [string]$Expected = "",
         [string]$Actual   = ""
     )
-    $status = if ($IsCompliant) { "PASS" } else { "FAIL" }
-    $color  = if ($IsCompliant) { "Green" } else { "Red" }
-    $detail = if (-not $IsCompliant -and $Expected) { " [Expected: $Expected | Got: $Actual]" } else { "" }
-    Write-Host "  [$status] $ID : $Description$detail" -ForegroundColor $color
+    $color  = switch ($Status) { "PASS" {"Green"} "SKIP" {"DarkGray"} default {"Red"} }
+    $detail = if ($Status -eq "FAIL" -and $Expected) { " [Expected: $Expected | Got: $Actual]" } else { "" }
+    Write-Host "  [$Status] $ID : $Description$detail" -ForegroundColor $color
     $Global:AuditResults += [PSCustomObject]@{
         CIS_ID      = $ID
         Description = $Description
-        Status      = $status
+        Status      = $Status
         Expected    = $Expected
         Actual      = $Actual
         Timestamp   = Get-Date -Format 'yyyy-MM-dd HH:mm:ss'
@@ -80,62 +91,42 @@ function ConvertTo-RegistryValue {
 function Get-AuditpolSetting {
     <#
     .SYNOPSIS
-        Returns the exact audit setting string for one subcategory.
+        Returns the audit setting for one subcategory, indent-agnostic.
     .DESCRIPTION
-        Calls auditpol /get /subcategory:"<name>" which scopes output to only
-        that subcategory - avoids all category-header substring collisions
-        (e.g. "Logoff" inside "Logon/Logoff", "Logon" inside "Account Logon").
-
-        auditpol output format (indent depth varies by Windows build/locale):
-            System audit policy
-            Category/Subcategory                      Setting
-              Logon/Logoff
-                Logoff                                Success
-
-        FIX for NOT FOUND: instead of filtering by indent depth (which varies),
-        skip the two known header lines, then for every remaining non-empty line
-        split on 2+ spaces and check whether the first token exactly matches the
-        subcategory name. Return the last token as the setting value.
-        This is indent-agnostic and works on all Windows Server 2019 builds.
+        Calls auditpol /get /subcategory:"X" scoped to just that one subcategory.
+        Skips known header lines. Splits on 2+ spaces. Matches first field exactly
+        to the subcategory name. Returns last field as the setting string.
+        Works regardless of indent depth (which varies by Windows build/locale).
     #>
     param([string]$Subcategory)
 
     $rawLines = auditpol /get /subcategory:"$Subcategory" 2>$null
-
     if (-not $rawLines) { return "AUDITPOL_ERROR" }
 
     foreach ($line in $rawLines) {
         $trimmed = $line.Trim()
+        if ($trimmed -eq "")                         { continue }
+        if ($trimmed -eq "System audit policy")      { continue }
+        if ($trimmed -match "^Category/Subcategory") { continue }
 
-        # Skip known header lines and blank lines
-        if ($trimmed -eq "")                          { continue }
-        if ($trimmed -eq "System audit policy")       { continue }
-        if ($trimmed -match "^Category/Subcategory")  { continue }
-
-        # Split on 2 or more spaces to separate the name column from value column
         $fields = $trimmed -split '\s{2,}'
-
-        # Subcategory lines have exactly 2 fields: [SubcategoryName, Setting]
-        # Category header lines have only 1 field (no setting column)
         if ($fields.Count -ge 2 -and $fields[0].Trim() -eq $Subcategory) {
             return [string]($fields[-1].Trim())
         }
     }
-
     return "NOT FOUND"
 }
 
 # =============================================================================
-# SECTION 1 - Account Policies
-# Reads Account_Policy.csv - same file hardening uses
+# SECTION 1 - Account Policies (secedit export)
 # =============================================================================
-
 function Test-CIS-AccountPolicies {
-    Write-Host "`n[*] Section 1 - Account Policies..." -ForegroundColor Cyan
+    param([string]$ServerRole)
+    Write-Host "`n[*] Section 1 - Account Policies ($ServerRole)..." -ForegroundColor Cyan
 
     $csvPath = "$PSScriptRoot\Account_Policy.csv"
     if (-not (Test-Path $csvPath)) {
-        Write-Host "  [!] Account_Policy.csv not found. Skipping Section 1." -ForegroundColor Red; return
+        Write-Host "  [!] Account_Policy.csv not found. Skipping." -ForegroundColor Red; return
     }
 
     $tmp = "$env:TEMP\audit_secedit.inf"
@@ -151,9 +142,9 @@ function Test-CIS-AccountPolicies {
     foreach ($p in $policies) {
         $raw = Get-SecVal $p.SeceditKey
         if ($null -eq $raw) {
-            Log-AuditResult $p.ID $p.Description $false $p.Value "NOT FOUND"; continue
+            Log-AuditResult $p.ID $p.Description "FAIL" $p.Value "NOT FOUND"; continue
         }
-        $actual = [int]$raw
+        $actual   = [int]$raw
         $expected = [int]$p.Value
         $pass = switch ($p.Operator) {
             "ge" { $actual -ge $expected }
@@ -161,33 +152,34 @@ function Test-CIS-AccountPolicies {
             "eq" { $actual -eq $expected }
             default { $false }
         }
-        Log-AuditResult $p.ID $p.Description ([bool]$pass) "$expected" "$actual"
+        Log-AuditResult $p.ID $p.Description $(if ($pass) {"PASS"} else {"FAIL"}) "$expected" "$actual"
     }
 }
 
 # =============================================================================
-# SECTION 17 - Advanced Audit Policy
-# Reads Audit_Policy.csv - same file hardening uses
+# SECTION 17 - Audit Policies (auditpol) - filtered by AppliesTo
 # =============================================================================
-
 function Test-CIS-AuditPolicies {
-    Write-Host "`n[*] Section 17 - Advanced Audit Policies..." -ForegroundColor Cyan
+    param([string]$ServerRole)
+    Write-Host "`n[*] Section 17 - Audit Policies ($ServerRole)..." -ForegroundColor Cyan
 
     $csvPath = "$PSScriptRoot\Audit_Policy.csv"
     if (-not (Test-Path $csvPath)) {
-        Write-Host "  [!] Audit_Policy.csv not found. Skipping Section 17." -ForegroundColor Red; return
+        Write-Host "  [!] Audit_Policy.csv not found. Skipping." -ForegroundColor Red; return
     }
 
-    $policies = Import-Csv $csvPath
-    foreach ($p in $policies) {
+    $allPolicies = Import-Csv $csvPath
+
+    foreach ($p in $allPolicies) {
+        # Check applicability
+        $applies = (-not $p.AppliesTo) -or ($p.AppliesTo -eq 'Both') -or ($p.AppliesTo -eq $ServerRole)
+        if (-not $applies) {
+            Log-AuditResult $p.ID "Audit: $($p.Subcategory)" "SKIP" "" "Not applicable to $ServerRole"
+            continue
+        }
 
         $actual = Get-AuditpolSetting -Subcategory $p.Subcategory
 
-        # Build expected string from Success/Failure columns in CSV
-        # enable/enable -> "Success and Failure"
-        # enable/disable -> "Success"
-        # disable/enable -> "Failure"
-        # disable/disable -> "No Auditing"
         $expected = switch ("$($p.Success)/$($p.Failure)") {
             "enable/enable"   { "Success and Failure" }
             "enable/disable"  { "Success" }
@@ -196,36 +188,46 @@ function Test-CIS-AuditPolicies {
             default           { "Unknown" }
         }
 
-        Log-AuditResult $p.ID $p.Description ([bool]($actual -eq $expected)) $expected $actual
+        Log-AuditResult $p.ID "Audit: $($p.Subcategory)" $(if ($actual -eq $expected) {"PASS"} else {"FAIL"}) $expected $actual
     }
 }
 
 # =============================================================================
-# SECTIONS 2.3, 9, 18, 19 - Registry checks via CIS_Data.csv
+# SECTIONS 2.3, 9, 18, 19 - Registry checks via CIS_Data.csv, filtered by AppliesTo
 # =============================================================================
-
 function Test-CIS-RegistryFromCSV {
-    param([string]$CsvPath = "$PSScriptRoot\CIS_Data.csv")
-
+    param(
+        [string]$CsvPath    = "$PSScriptRoot\CIS_Data.csv",
+        [string]$ServerRole
+    )
     if (-not (Test-Path $CsvPath)) {
         Write-Host "[!] CIS_Data.csv not found: $CsvPath" -ForegroundColor Red; return
     }
 
-    $Policies = Import-Csv $CsvPath
-    Write-Host "`n[*] Checking $($Policies.Count) registry settings..." -ForegroundColor Cyan
+    $allPolicies = Import-Csv $CsvPath
+    Write-Host "`n[*] Registry checks ($ServerRole): $($allPolicies.Count) total entries..." -ForegroundColor Cyan
 
-    foreach ($p in $Policies) {
-        if (-not (Test-Path $p.Path)) {
-            Log-AuditResult $p.ID "$($p.Section): $($p.Name)" $false $p.Value "KEY MISSING"
+    foreach ($p in $allPolicies) {
+        # Check applicability
+        $applies = (-not $p.AppliesTo) -or ($p.AppliesTo -eq 'Both') -or ($p.AppliesTo -eq $ServerRole)
+        if (-not $applies) {
+            Log-AuditResult $p.ID "$($p.Section): $($p.Name)" "SKIP" "" "Not applicable to $ServerRole"
             continue
         }
+
+        if (-not (Test-Path $p.Path)) {
+            Log-AuditResult $p.ID "$($p.Section): $($p.Name)" "FAIL" $p.Value "KEY MISSING"
+            continue
+        }
+
         $cur = (Get-ItemProperty -Path $p.Path -Name $p.Name -ErrorAction SilentlyContinue).$($p.Name)
         if ($null -eq $cur) {
-            Log-AuditResult $p.ID "$($p.Section): $($p.Name)" $false $p.Value "VALUE MISSING"
+            Log-AuditResult $p.ID "$($p.Section): $($p.Name)" "FAIL" $p.Value "VALUE MISSING"
             continue
         }
+
         $exp    = ConvertTo-RegistryValue -Value $p.Value -Type $p.Type
         $isPass = [bool]($cur -eq $exp)
-        Log-AuditResult $p.ID "$($p.Section): $($p.Name)" $isPass "$exp" "$cur"
+        Log-AuditResult $p.ID "$($p.Section): $($p.Name)" $(if ($isPass) {"PASS"} else {"FAIL"}) "$exp" "$cur"
     }
 }

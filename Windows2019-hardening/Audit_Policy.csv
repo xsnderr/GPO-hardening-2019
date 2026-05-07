@@ -1,35 +1,35 @@
-ID,Subcategory,Success,Failure,Description
-17.1.1,Credential Validation,enable,enable,Account Logon: Credential Validation
-17.1.2,Kerberos Authentication Service,enable,enable,Account Logon: Kerberos Authentication Service
-17.1.3,Kerberos Service Ticket Operations,enable,enable,Account Logon: Kerberos Service Ticket Operations
-17.2.1,Application Group Management,enable,enable,Account Mgmt: Application Group Management
-17.2.2,Computer Account Management,enable,disable,Account Mgmt: Computer Account Management
-17.2.3,Distribution Group Management,enable,disable,Account Mgmt: Distribution Group Management
-17.2.4,Other Account Management Events,enable,disable,Account Mgmt: Other Account Management Events
-17.2.5,Security Group Management,enable,disable,Account Mgmt: Security Group Management
-17.2.6,User Account Management,enable,enable,Account Mgmt: User Account Management
-17.3.1,Plug and Play Events,enable,disable,Detailed Tracking: Plug and Play Events
-17.3.2,Process Creation,enable,disable,Detailed Tracking: Process Creation
-17.4.1,Directory Service Access,disable,enable,DS Access: Directory Service Access
-17.4.2,Directory Service Changes,enable,disable,DS Access: Directory Service Changes
-17.5.1,Account Lockout,disable,enable,Logon/Logoff: Account Lockout
-17.5.2,Group Membership,enable,disable,Logon/Logoff: Group Membership
-17.5.3,Logoff,enable,disable,Logon/Logoff: Logoff
-17.5.4,Logon,enable,enable,Logon/Logoff: Logon
-17.5.5,Other Logon/Logoff Events,enable,enable,Logon/Logoff: Other Logon/Logoff Events
-17.5.6,Special Logon,enable,disable,Logon/Logoff: Special Logon
-17.6.1,Detailed File Share,disable,enable,Object Access: Detailed File Share
-17.6.2,File Share,enable,enable,Object Access: File Share
-17.6.3,Other Object Access Events,enable,enable,Object Access: Other Object Access Events
-17.6.4,Removable Storage,enable,enable,Object Access: Removable Storage
-17.7.1,Audit Policy Change,enable,disable,Policy Change: Audit Policy Change
-17.7.2,Authentication Policy Change,enable,disable,Policy Change: Authentication Policy Change
-17.7.3,Authorization Policy Change,enable,disable,Policy Change: Authorization Policy Change
-17.7.4,MPSSVC Rule-Level Policy Change,enable,enable,Policy Change: MPSSVC Rule-Level Policy Change
-17.7.5,Other Policy Change Events,disable,enable,Policy Change: Other Policy Change Events
-17.8.1,Sensitive Privilege Use,enable,enable,Privilege Use: Sensitive Privilege Use
-17.9.1,IPsec Driver,enable,enable,System: IPsec Driver
-17.9.2,Other System Events,enable,enable,System: Other System Events
-17.9.3,Security State Change,enable,disable,System: Security State Change
-17.9.4,Security System Extension,enable,disable,System: Security System Extension
-17.9.5,System Integrity,enable,enable,System: System Integrity
+ID,Subcategory,Success,Failure,Description,AppliesTo
+17.1.1,Credential Validation,enable,enable,Account Logon: Credential Validation,Both
+17.1.2,Kerberos Authentication Service,enable,enable,Account Logon: Kerberos Authentication Service,DC
+17.1.3,Kerberos Service Ticket Operations,enable,enable,Account Logon: Kerberos Service Ticket Operations,DC
+17.2.1,Application Group Management,enable,enable,Account Mgmt: Application Group Management,DC
+17.2.2,Computer Account Management,enable,disable,Account Mgmt: Computer Account Management,DC
+17.2.3,Distribution Group Management,enable,disable,Account Mgmt: Distribution Group Management,DC
+17.2.4,Other Account Management Events,enable,disable,Account Mgmt: Other Account Management Events,Both
+17.2.5,Security Group Management,enable,disable,Account Mgmt: Security Group Management,Both
+17.2.6,User Account Management,enable,enable,Account Mgmt: User Account Management,Both
+17.3.1,Plug and Play Events,enable,disable,Detailed Tracking: Plug and Play Events,Both
+17.3.2,Process Creation,enable,disable,Detailed Tracking: Process Creation,Both
+17.4.1,Directory Service Access,disable,enable,DS Access: Directory Service Access,DC
+17.4.2,Directory Service Changes,enable,disable,DS Access: Directory Service Changes,DC
+17.5.1,Account Lockout,disable,enable,Logon/Logoff: Account Lockout,Both
+17.5.2,Group Membership,enable,disable,Logon/Logoff: Group Membership,Both
+17.5.3,Logoff,enable,disable,Logon/Logoff: Logoff,Both
+17.5.4,Logon,enable,enable,Logon/Logoff: Logon,Both
+17.5.5,Other Logon/Logoff Events,enable,enable,Logon/Logoff: Other Logon/Logoff Events,Both
+17.5.6,Special Logon,enable,disable,Logon/Logoff: Special Logon,Both
+17.6.1,Detailed File Share,disable,enable,Object Access: Detailed File Share,Both
+17.6.2,File Share,enable,enable,Object Access: File Share,Both
+17.6.3,Other Object Access Events,enable,enable,Object Access: Other Object Access Events,Both
+17.6.4,Removable Storage,enable,enable,Object Access: Removable Storage,Both
+17.7.1,Audit Policy Change,enable,disable,Policy Change: Audit Policy Change,Both
+17.7.2,Authentication Policy Change,enable,disable,Policy Change: Authentication Policy Change,Both
+17.7.3,Authorization Policy Change,enable,disable,Policy Change: Authorization Policy Change,Both
+17.7.4,MPSSVC Rule-Level Policy Change,enable,enable,Policy Change: MPSSVC Rule-Level Policy Change,Both
+17.7.5,Other Policy Change Events,disable,enable,Policy Change: Other Policy Change Events,Both
+17.8.1,Sensitive Privilege Use,enable,enable,Privilege Use: Sensitive Privilege Use,Both
+17.9.1,IPsec Driver,enable,enable,System: IPsec Driver,Both
+17.9.2,Other System Events,enable,enable,System: Other System Events,Both
+17.9.3,Security State Change,enable,disable,System: Security State Change,Both
+17.9.4,Security System Extension,enable,disable,System: Security System Extension,Both
+17.9.5,System Integrity,enable,enable,System: System Integrity,Both
