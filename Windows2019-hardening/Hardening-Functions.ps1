@@ -144,83 +144,48 @@ Revision=1
 # =============================================================================
 function Set-CIS-UserRights {
     param([string]$ServerRole)
-    Write-Host "`n[*] Section 2.2 - User Rights ($ServerRole profile)..." -ForegroundColor Cyan
+    Write-Host "`n[*] Section 2.2 - User Rights Assignment (Data-Driven)..." -ForegroundColor Cyan
+
+    $csvPath = "$PSScriptRoot\User_Rights.csv"
+    if (-not (Test-Path $csvPath)) {
+        Write-Host "  [ERROR] User_Rights.csv not found at: $csvPath" -ForegroundColor Red
+        $Global:HardeningErrors++
+        return
+    }
+
+    # Import data and filter by detected role (DC or MS)
+    $allRights = Import-Csv $csvPath
+    $applicableRights = $allRights | Where-Object { $_.AppliesTo -eq 'Both' -or $_.AppliesTo -eq $ServerRole }
+
+    $privilegeBlock = ""
+    foreach ($r in $applicableRights) {
+        $privilegeBlock += "$($r.RightName) = $($r.Value)`r`n"
+    }
 
     $inf = "$env:TEMP\CIS_Rights.inf"
-
-    # Rights common to both DC and MS
-    $commonRights = @"
-SeNetworkLogonRight             = *S-1-5-32-544,*S-1-5-32-551
-SeTcbPrivilege                  =
-SeBackupPrivilege               = *S-1-5-32-544
-SeSystemtimePrivilege           = *S-1-5-32-544,*S-1-5-19
-SeTimeZonePrivilege             = *S-1-5-32-544,*S-1-5-19,*S-1-5-32-545
-SeCreatePagefilePrivilege       = *S-1-5-32-544
-SeCreateTokenPrivilege          =
-SeCreateGlobalPrivilege         = *S-1-5-32-544,*S-1-5-19,*S-1-5-20,*S-1-5-6
-SeCreatePermanentPrivilege      =
-SeCreateSymbolicLinkPrivilege   = *S-1-5-32-544
-SeDebugPrivilege                = *S-1-5-32-544
-SeDenyNetworkLogonRight         = *S-1-5-32-546
-SeDenyInteractiveLogonRight     = *S-1-5-32-546
-SeDenyRemoteInteractiveLogonRight = *S-1-5-32-546
-SeEnableDelegationPrivilege     =
-SeRemoteShutdownPrivilege       = *S-1-5-32-544
-SeAuditPrivilege                = *S-1-5-19,*S-1-5-20
-SeImpersonatePrivilege          = *S-1-5-32-544,*S-1-5-19,*S-1-5-20,*S-1-5-6
-SeIncreaseBasePriorityPrivilege = *S-1-5-32-544
-SeLoadDriverPrivilege           = *S-1-5-32-544
-SeLockMemoryPrivilege           =
-SeSecurityPrivilege             = *S-1-5-32-544
-SeRelabelPrivilege              =
-SeSystemEnvironmentPrivilege    = *S-1-5-32-544
-SeManageVolumePrivilege         = *S-1-5-32-544
-SeProfileSingleProcessPrivilege = *S-1-5-32-544
-SeSystemProfilePrivilege        = *S-1-5-32-544,*S-1-5-80-3139157870-2983391045-3678747466-658725712-1809340420
-SeAssignPrimaryTokenPrivilege   = *S-1-5-19,*S-1-5-20
-SeRestorePrivilege              = *S-1-5-32-544
-SeShutdownPrivilege             = *S-1-5-32-544
-SeSyncAgentPrivilege            =
-SeTakeOwnershipPrivilege        = *S-1-5-32-544
-"@
-
-    # DC-only: adds workstation join right, batch logon for service accounts
-    $dcOnlyRights = @"
-SeInteractiveLogonRight         = *S-1-5-32-544
-SeRemoteInteractiveLogonRight   = *S-1-5-32-544,*S-1-5-32-555
-SeBatchLogonRight               = *S-1-5-32-544,*S-1-5-32-551,*S-1-5-32-559
-SeAddWorkstationPrivilege       = *S-1-5-32-544
-"@
-
-    # MS-only: no workstation join right
-    $msOnlyRights = @"
-SeInteractiveLogonRight         = *S-1-5-32-544
-SeRemoteInteractiveLogonRight   = *S-1-5-32-544,*S-1-5-32-555
-SeBatchLogonRight               = *S-1-5-32-544,*S-1-5-32-551,*S-1-5-32-559
-"@
-
-    $roleRights = if ($ServerRole -eq "DC") { $dcOnlyRights } else { $msOnlyRights }
-
-    @"
+    
+    # CRITICAL: The closing "@ must be at the very start of the line!
+    $template = @"
 [Unicode]
 Unicode=yes
 [Privilege Rights]
-$commonRights
-$roleRights
+$privilegeBlock
 [Version]
 signature="`$CHICAGO`$"
 Revision=1
-"@ | Out-File $inf -Encoding unicode
+"@
+    $template | Out-File $inf -Encoding unicode
 
+    # Apply via secedit
     secedit /configure /db "$env:windir\security\local.sdb" /cfg $inf /areas USER_RIGHTS /overwrite /quiet 2>&1 | Out-Null
+    
     if ($LASTEXITCODE -eq 0) {
-        Write-Host "  [OK] User rights applied ($ServerRole profile)." -ForegroundColor Green
+        Write-Host "  [OK] User rights applied from CSV ($ServerRole profile)." -ForegroundColor Green
     } else {
-        Write-Host "  [ERROR] secedit failed for user rights." -ForegroundColor Red
+        Write-Host "  [ERROR] secedit failed to apply User Rights. Check $inf for syntax." -ForegroundColor Red
         $Global:HardeningErrors++
     }
 }
-
 # =============================================================================
 # SECTION 17 - Audit Policy (auditpol) - filtered by AppliesTo column
 # =============================================================================

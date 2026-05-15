@@ -1,14 +1,14 @@
 ID,Subcategory,Success,Failure,Description,AppliesTo
 17.1.1,Credential Validation,enable,enable,Account Logon: Credential Validation,Both
-17.1.2,Kerberos Authentication Service,enable,enable,Account Logon: Kerberos Authentication Service,DC
-17.1.3,Kerberos Service Ticket Operations,enable,enable,Account Logon: Kerberos Service Ticket Operations,DC
-17.2.1,Application Group Management,enable,enable,Account Mgmt: Application Group Management,DC
+17.1.2,Kerberos Authentication Service,enable,enable,Account Logon: Kerberos,DC
+17.1.3,Kerberos Service Ticket Operations,enable,enable,Account Logon: Kerberos,DC
+17.2.1,Application Group Management,enable,enable,Account Mgmt: Application Group Management,Both
 17.2.2,Computer Account Management,enable,disable,Account Mgmt: Computer Account Management,DC
 17.2.3,Distribution Group Management,enable,disable,Account Mgmt: Distribution Group Management,DC
-17.2.4,Other Account Management Events,enable,disable,Account Mgmt: Other Account Management Events,Both
+17.2.4,Other Account Management Events,enable,disable,Account Mgmt: Other Account Management Events,DC
 17.2.5,Security Group Management,enable,disable,Account Mgmt: Security Group Management,Both
 17.2.6,User Account Management,enable,enable,Account Mgmt: User Account Management,Both
-17.3.1,Plug and Play Events,enable,disable,Detailed Tracking: Plug and Play Events,Both
+17.3.1,Plug and Play Events,enable,disable,Detailed Tracking: PNP Activity,Both
 17.3.2,Process Creation,enable,disable,Detailed Tracking: Process Creation,Both
 17.4.1,Directory Service Access,disable,enable,DS Access: Directory Service Access,DC
 17.4.2,Directory Service Changes,enable,disable,DS Access: Directory Service Changes,DC
